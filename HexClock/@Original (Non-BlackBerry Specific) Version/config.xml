@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns:rim="http://www.blackberry.com/ns/widgets" id="hexclock" version="1.0.0.0" rim:header="RIM-Widget:rim/widget" xmlns="http://www.w3.org/ns/widgets">
+  <rim:navigation mode="focus" />
+  <name>Hex Clock</name>
+  <description>Time as a hex value</description>
+  <author href="https://scrapps.org">SCrApps</author>
+  <icon src="images/icon.png" />
+  <content src="index.html" />
+  <access uri="*" subdomains="true" />
+  <feature id="blackberry.ui.menu" />
+ <feature id="blackberry.app.orientation">
+    <param name="mode" value="landscape" />
+  </feature>
+</widget>

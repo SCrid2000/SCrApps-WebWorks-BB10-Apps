@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no"/>
+    <script src="cssjs/codemirror.js"></script>
+    <script src="cssjs/closetag.js"></script>
+    <script src="cssjs/htmlembedded.js"></script>
+    <script src="cssjs/clike.js"></script>
+    <script src="cssjs/php.js"></script>
+    <script src="cssjs/xml.js"></script>
+    <script src="cssjs/javascript.js"></script>
+    <script src="cssjs/css.js"></script>
+    <script src="cssjs/htmlmixed.js"></script>
+    <link rel=stylesheet href="cssjs/codemirror.css">
+    <link rel=stylesheet href="cssjs/docs.css">
+    <style type=text/css>
+	body, html{
+		margin: 0px;
+		}
+      .CodeMirror {
+        border: 1px solid #eee;
+        height: 100%;
+		width: 100%;
+        border: 1px solid black;
+      }
+      iframe {
+        height: 900px;
+		width: 100%;
+        border: 0px;
+		overflow:scroll
+     }
+      .activeline {background: #e8f2ff !important;}
+    </style>
+  </head>
+  <body>
+  
+		<textarea id="code" name="code"><h1 style="text-align: center;">Welcome to codeWriter!</h1>
+I made this app for testing scraps of HTML, JavaScript, or CSS code when I'm out and about and don't have a PC handy.<br><br>
+It's built using CodeMirror, which is an excellent Open Source HTML based code editing programming API. 
+CodeMirror can be found at<a href="http://codemirror.net/"> http://codemirror.net/</a>.<br><br>
+	<table style="text-align: center;" width="100%"><tr>
+		<td width="50%"><center><img width="100%" src="images/baboon.png"/><br>(CodeMirror Logo)</center></td>
+		<td width="50%"><center><img width="100%" src="images/scrapps.png"/><br>(SCrApps Logo)</center></td>
+	</center></tr></table><br>
+If you find this app useful, you should consider sending a donation to Marijn Haverbeke (the creater of CodeMirror) or buying some <a href="https://appworld.blackberry.com/webstore/vendor/4735/">SCrApps apps from App World.</a><br><br>
+Any code you use here will automatically be saved into localStorage, so when you open the app you'll be right back where you started. If you don't have any data saved in the html field above, this screen will be displayed.<br><br>
+Version 1.0 doesn't contain much more than a text field and a WYSIWYG display; in future releases I hope to add export to file, theming options, and other useful updates.<br><br>
+If you have any questions, just shoot me an email at Support@SCrApps.org.</textarea>
+
+<!--
+<button onclick="editor.setValue('')">Clear</button>
+<button onclick="editor.replaceSelection('<div></div>')">Test</button>
+<button onclick="alert(editor.getValue())">Test</button>-->
+
+		<iframe id="preview"></iframe>
+	
+	
+    <script>
+
+
+
+var delay;
+var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
+mode: 'text/html',
+tabMode: 'indent',
+lineNumbers: true,
+matchBrackets: true,
+lineWrapping: true,
+autoCloseTags: true,
+showCursorWhenSelecting : true,
+extraKeys: {"Enter": "newlineAndIndentContinueComment"}
+});
+
+editor.on("change", function() {
+localStorage.setItem('code',editor.getValue());
+clearTimeout(delay);
+delay = setTimeout(updatePreview, 300);
+});
+var hlLine = editor.addLineClass(0, "background", "activeline");
+editor.on("cursorActivity", function() {
+  var cur = editor.getLineHandle(editor.getCursor().line);
+  if (cur != hlLine) {
+    editor.removeLineClass(hlLine, "background", "activeline");
+    hlLine = editor.addLineClass(cur, "background", "activeline");
+  }
+});
+
+
+
+if (localStorage.getItem('code') != null && localStorage.getItem('code') != ''){
+	editor.setValue(localStorage.getItem('code'))
+	}
+
+function updatePreview() {
+var previewFrame = document.getElementById('preview');
+var preview =  previewFrame.contentDocument ||  previewFrame.contentWindow.document;
+preview.open();
+preview.write(editor.getValue());
+preview.close();
+}
+setTimeout(updatePreview, 300);
+    </script>
+
+  </body>
+</html>

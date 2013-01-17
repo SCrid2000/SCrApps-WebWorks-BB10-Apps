@@ -1,0 +1,53 @@
+<div data-bb-type="screen" data-bb-title="Menus" data-bb-effect="" style="background-color: black;">
+
+	<div data-bb-type="menu" >
+		<div data-bb-type="menu-item" data-bb-img="images/bbm.png" onclick="setPM();">Update Status</div>
+		<div data-bb-type="menu-item" data-bb-img="images/bbm.png" onclick="invite();" >Share JSCalc</div>
+		<div data-bb-type="menu-item" data-bb-img="images/yourinfo.png" onclick="window.open('http://www.scrapps.org/privacy.html', '_blank');">Privacy Policy</div>
+	</div>
+	
+
+	<table width="100%" height="100%" cellpadding="4px"><tr>
+		<td colspan="4" height="150px"><div style="font-size: 50px; width: 100%; height: 100%; color: red; padding: 20px;" id="myFuncs">History:</div></td>
+		</tr><tr>
+		<td colspan="4"><input id="calcScreen" value="" style="text-align: right; background: white; color: black;"/></td>
+		</tr><tr>
+		<td colspan="4"><input id="clearCalc" value="Clear Entry" type="button" onclick="document.getElementById('calcScreen').value = ''" /></td>
+		</tr><tr>
+		<td colspan="2"><input type="button" value="sqrt" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; document.getElementById('calcScreen').value = Math.sqrt(document.getElementById('calcScreen').value); document.getElementById('myFuncs').innerHTML += document.getElementById('calcScreen').value + '; ';sessionStorage.setItem('startNew','yes');" /></td>
+		<td colspan="2"><input type="button" value="^2" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; document.getElementById('calcScreen').value = document.getElementById('calcScreen').value * document.getElementById('calcScreen').value; document.getElementById('myFuncs').innerHTML += document.getElementById('calcScreen').value + '; '; sessionStorage.setItem('startNew','yes');" /></td>
+	</tr><tr>
+		<td><input id="box1" value="1" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box2" value="2" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box3" value="3" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td rowspan="2"><input value="=" type="button" onclick="document.getElementById('myFuncs').innerHTML += document.getElementById('calcScreen').value + ' ' +this.value; storeValue();equals(); document.getElementById('myFuncs').innerHTML += ' '+ document.getElementById('calcScreen').value + '; '; sessionStorage.setItem('startNew','yes')" /><br></td>
+	</tr><tr>                                                 
+		<td><input id="box4" value="4" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box5" value="5" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box6" value="6" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+	</tr><tr>                                                 
+		<td><input id="box7" value="7" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box8" value="8" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box9" value="9" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+		<td><input id="box3" value="0" type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td>
+	</tr><tr>
+		<td><input type="button" value="+" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; sessionStorage.setItem('nextcalc',this.value);storeValue();" /></td>
+		<td><input type="button" value="-" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; sessionStorage.setItem('nextcalc',this.value);storeValue();" /></td>
+		<td><input type="button" value="*" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; sessionStorage.setItem('nextcalc',this.value);storeValue();" /></td>
+		<td><input type="button" value="/" onclick="startNew(); document.getElementById('myFuncs').innerHTML += ' ' + document.getElementById('calcScreen').value + ' ' + this.value + ' '; sessionStorage.setItem('nextcalc',this.value);storeValue();" /></td>
+	</tr><tr>
+		<td colspan="4"><input type="button" value="Reset" onclick="sessionStorage.clear();document.getElementById('calcScreen').value = '';document.getElementById('myFuncs').innerHTML = 'History: ';" /></td>
+	</tr></table>	
+
+
+
+
+
+
+
+		<!-- <td><input id="boxdec" value="." type="button" onclick="document.getElementById('calcScreen').value = document.getElementById('calcScreen').value + (this.value)" /></td> -->
+
+
+<input id="hidden" value="1" type="number" style="display: none;" />
+
+</div>
