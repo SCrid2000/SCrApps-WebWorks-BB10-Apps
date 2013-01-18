@@ -1,3 +1,8 @@
+function loadPage() {
+if (localStorage.getItem('iframe') == 'true') {bb.pushScreen('iframe.html','iframe');}
+else {bb.pushScreen('settingspage.html','settings');}
+}
+
 function unCheckAll() {
 	document.getElementById('Neitherradio').setChecked()
 	localStorage.clear('')
@@ -6,6 +11,8 @@ function unCheckAll() {
 }
 
 function loadingTime () {
+if (document.getElementById('iframetoggle') !=null) {
+	if (localStorage.getItem('iframe') == 'true') {document.getElementById('iframetoggle').setChecked(true)}
 	if (localStorage.getItem('load') == 'Landscape') { 
 		document.getElementById('Landscaperadio').setChecked()
 		document.getElementById('url').innerHTML = 'Your code will load in Landscape, these settings in Portrait.'
@@ -31,5 +38,6 @@ function loadingTime () {
 	if (localStorage.getItem('hello') != null) { 
 		document.getElementById('hello').style.display = 'none'
 	}
-	bb.scroller.refresh()
+}
+if (document.getElementById('theiframe') !=null) { document.getElementById('theiframe').src = localStorage.getItem('goto')}
 }

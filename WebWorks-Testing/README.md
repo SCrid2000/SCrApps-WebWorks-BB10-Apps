@@ -10,5 +10,6 @@ Launch the WebWorks Testing app, and follow the setup instructions.
 That's it. You can test your WebWorks apps by just launching the WebWorks Testing app.
 
 Thanks to BlackBerry, Tim Neil, and the rest of the team responsible for bbUI, which was used to improve the appearance of the settings screen.
+Also, a big thanks to Mike Robinson [https://github.com/badtoyz] for his contributions to this project!
 
 Now availalbe in BlackBerry App World at https://appworld.blackberry.com/webstore/content/103086
