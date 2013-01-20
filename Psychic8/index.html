@@ -41,10 +41,16 @@
 										},
 						// Fires "after" styling is applied and "after" the screen is inserted in the DOM
 						ondomready: function(element, id) {
-											if (id == 'dataOnTheFly') {
-												dataOnTheFly_initialLoad(element);
-											} 
 										onLoadFunctions();
+										function shakeIt(data) {
+												if (data.x > 10 && sessionStorage.getItem('pause') == 'no') {
+													askMe(); 
+													sessionStorage.setItem('pause','yes'); 
+													setTimeout("sessionStorage.setItem('pause','no')",500)
+												}
+										}
+										blackberry.sensors.setOptions("deviceaccelerometer", { background: true, batching: true, delay: 1000 });
+										blackberry.event.addEventListener('deviceaccelerometer', shakeIt);
 										}
 						});
 				bb.pushScreen('8ball.html','8ball');

@@ -61,6 +61,7 @@ blackberry.bbm.platform.self.setPersonalMessage('The all-knowing 8 Ball told me 
 }
 
 function onLoadFunctions() {
+sessionStorage.setItem('pause','no')
 // Register the app. Make sure you get a unique UUID!
 	blackberry.event.addEventListener('onaccesschanged', function (accessible, status) {
 		if (status === 'unregistered') {
