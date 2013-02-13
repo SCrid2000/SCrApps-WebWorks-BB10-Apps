@@ -1,0 +1,55 @@
+<head>
+<script src="local:///chrome/webworks.js"></script>
+
+<script type="text/javascript">
+function email() {
+blackberry.invoke.card.invokeEmailComposer({
+}, function (done) {
+    blackberry.app.exit();
+}, function (cancel) {
+    blackberry.app.exit();
+});
+}
+</script>
+
+<style type="text/css">
+body {
+	background: #252525;
+	color: white;
+}
+.imgdiv {
+	position: fixed;
+	top:50%;
+	left: 50%;
+}
+.innerdiv {
+	position: relative;
+	top: -92px;
+	left: -92px;
+}
+#spinner {
+	-webkit-animation-name: spinMe;
+	-webkit-animation-duration:1s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function:linear;
+  }
+@-webkit-keyframes spinMe {
+	from {-webkit-transform: rotate(0deg);}
+	to {-webkit-transform: rotate(360deg);}
+} 
+</style>
+
+</head>
+<body onload="setTimeout('email()',1)">
+
+<div class="imgdiv">
+	<div class="innerdiv">
+		<img src="images/spinner1.png" />
+	</div>
+</div>
+<div class="imgdiv">
+	<div class="innerdiv">
+		<img id="spinner" src="images/spinner2.png" />
+	</div>
+</div>
+</body>
