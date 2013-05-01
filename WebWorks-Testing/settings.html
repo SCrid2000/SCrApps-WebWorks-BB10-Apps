@@ -2,9 +2,9 @@
 <html> 
 	<head>
 		<meta name="x-blackberry-defaultHoverEffect" content="false" />
-		<link  rel="stylesheet" type="text/css" href="cssjs/bbui-0.9.5.css"><link />
+		<link  rel="stylesheet" type="text/css" href="cssjs/bbui.css"><link />
 		<link  rel="stylesheet" type="text/css" href="cssjs/custom.css"><link />
-		<script type="text/javascript" src="cssjs/bbui-0.9.5.js"></script>
+		<script type="text/javascript" src="cssjs/bbui.js"></script>
 		<script type="text/javascript" src="cssjs/custom.js"></script>
 		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
 		<script type="text/javascript">
@@ -17,7 +17,6 @@
 						controlsDark: true,
 						listsDark: false,
 						bb10ForPlayBook: true,
-						// Fires "before" styling is applied and "before" the screen is inserted in the DOM
 						onscreenready: function(element, id) {},
 						ondomready: function(element, id) {
 										loadingTime();
@@ -26,9 +25,8 @@
 				loadPage();
 			}, false);
 			
-			// Fire the webworksready event for PlayBook and BBOS
 			window.addEventListener('load',function() {
-					if (navigator.userAgent.indexOf('Version/10.0') < 0) {
+					if (navigator.userAgent.indexOf('BB10') < 0) {
 						var evt = document.createEvent('Events');
 						evt.initEvent('webworksready', true, true);
 						document.dispatchEvent(evt);

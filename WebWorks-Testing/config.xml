@@ -5,7 +5,7 @@
 	rim:header="RIM-Widget:rim/widget" 
 	xml:lang="en"
 	id="WebWorksTesting3f6f4cba879926de7368c43e88a421a2" 
-	version="1.4.0.0">
+	version="1.5.0.0">
 	
 	<name>WebWorks Testing</name>
 	<description>For testing WebWorks Apps</description>
