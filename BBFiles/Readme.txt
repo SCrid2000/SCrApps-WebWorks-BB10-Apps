@@ -117,14 +117,12 @@ Although bbUI is used in the sample app, there are no unincluded dependencies.
 The CanvasToBlob Script is included courtesy of Eli Grey. http://purl.eligrey.com/github/canvas-toBlob.js/blob/master/canvas-toBlob.js
 
 You will need to add the following to your config.xml:
-    <blockquote>
 <feature id="blackberry.invoke.card" />
 <feature id="blackberry.io" />
 <feature id="blackberry.ui.toast" />
 <rim:permissions>
 	<rim:permit>access_shared</rim:permit>
 </rim:permissions>
-    </blockquote>
 
 Usage: 
 Add bbfiles.js to your document.
