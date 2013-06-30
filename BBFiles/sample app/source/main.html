@@ -1,0 +1,85 @@
+<div data-bb-type="screen" data-bb-effect="fade" style="background-color: #252525;color:white; font-size: 36px;" data-bb-scroll-effect="off">
+
+	<div data-bb-type="round-panel">
+	<div data-bb-type="panel-header" style="font-size: 55px;">BlackBerry File API Framework</div>
+	This app is just examples of how to use the BlackBerry File API Framework; to understand how it works and what it's doing, please check <a style="color: #aaffaa; text-decoration: underline;" onclick="blackberry.invoke.invoke({target: 'sys.browser', uri: 'https://github.com/SCrid2000/SCrApps-WebWorks-BB10-Apps/tree/master/BBFiles'})">BBFiles JavaScript Framework on Github</a>.<br><br>
+	
+	<div data-bb-type="panel-header" style="font-size: 45px;">The Samples</div>
+
+		<table width="100%"><tr><td colspan="2">saveText() (many of the samples in this sample depend on the helloWorld.txt created by the first saveText() command here)</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="saveText('Hello World!', '/accounts/1000/shared/misc/helloWorld.txt')">Save</div></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="saveText('Hello World', '/accounts/1000/shared/misc/', 'picker', '.txt')">Pick Save</div></td>
+		</tr>
+		<tr><td colspan="2">loadData() (you will need to create a function onLoad(data) to be triggered by this. See custom.js for an example)</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="loadData('/accounts/1000/shared/misc/helloWorld.txt')">Load</div></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="loadData('/accounts/1000/shared/misc/', 'picker')">Pick Load</div></td>
+		</tr>
+		<tr><td colspan="2">deleteFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="deleteFile('/accounts/1000/shared/misc/helloWorld.txt')">Delete</div></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="deleteFile('/accounts/1000/shared/misc/', 'picker')">Pick Delete</div></td>
+		</tr>
+		<tr><td>createFolder()</td><td>deleteFolder()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="createFolder('/accounts/1000/shared/misc/New')">Save Folder</div></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="deleteFolder('/accounts/1000/shared/misc/New')">Delete Folder</div></td>
+		</tr>
+		<tr><td colspan="2">moveFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="moveFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/helloWorld.txt')">Move</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="moveFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/', 'picker')">Pick Move</div>
+		</tr>
+		<tr><td colspan="2">moveRenameFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="moveRenameFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/helloWorld.txt', 'newFile.txt')">Move Rename</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="moveRenameFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/', 'newFile.txt', 'picker')">Pick Move Rename</div>
+		</tr>
+		<tr><td colspan="2">copyFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="copyFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/helloWorld.txt')">Copy</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="copyFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/', 'picker')">Pick Copy</div>
+		</tr>
+		<tr><td colspan="2">copyRenameFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="copyRenameFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/helloWorld.txt', 'newFile.txt')">Copy Rename</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="copyRenameFile('/accounts/1000/shared/downloads/', '/accounts/1000/shared/misc/', 'newFile.txt', 'picker')">Pick Copy Rename</div>
+		</tr>
+		<tr><td colspan="2">renameFile()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="renameFile('/accounts/1000/shared/misc/helloWorld.txt', 'yay.txt')">Rename</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="renameFile('/accounts/1000/shared/misc/', 'yay.txt', 'picker')">Pick Rename</div>
+		</tr>
+		<tr><td colspan="2">saveCanvas()</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="saveCanvas(document.getElementById('canvas'), '/accounts/1000/shared/misc/image.png')">Save Canvas</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="saveCanvas(document.getElementById('canvas'), '/accounts/1000/shared/misc/', 'picker')">Pick Save Canvas</div>
+		</tr>
+		<tr><td colspan="2">loadCanvas() (not actually file API, but since we're here...)</td></tr>
+		<tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="loadCanvas(document.getElementById('canvas'), '/accounts/1000/shared/misc/image.png', 'nopicker', 500, 300)">Load Canvas</div>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="loadCanvas(document.getElementById('canvas'), '/accounts/1000/shared/misc/', 'picker', 500, 300)">Pick Load Canvas</div>
+		</tr></table>
+	Big Thanks to Eli Grey for the Canvas-toBlog script (which is what the red canvas is for)<br>
+	<canvas id="canvas" width="500px" height="300px"></canvas>
+	<br>
+	<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.invoke.card.invokeFilePicker()">View Files</div>
+	
+	<div data-bb-type="round-panel">
+		<div data-bb-type="panel-header" style="font-size: 45px;">In App Storage</div>
+		The example above all use full links. You can also use blackberry.io.SDCard or blackberry.io.sharedFolder rather than full links.<br>
+		Also, if you'd like to save to the app storage, you can use blackberry.io.home. As an example: <br>
+		
+		<table width="100%"><tr>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="saveText('Hello World!', blackberry.io.home+'/helloWorld.txt')">Save</div></td>
+			<td><div data-bb-type="button" data-bb-style="stretch" onclick="deleteFile(blackberry.io.home+'/helloWorld.txt')">Delete</div></td>
+		</tr><tr>
+			<td colspan="2"><div data-bb-type="button" data-bb-style="stretch" onclick="loadCanvas(document.getElementById('canvas'), blackberry.io.home+'/../app/native/images/icon.png')">Load icon into Canvas</div></td>
+		</tr></table>
+		However, you CAN NOT use the built in file picker for accessing the app storage area.
+
+		<div data-bb-type="button" data-bb-style="stretch" onclick="blackberry.io.sandbox = false; window.open('file://'+blackberry.io.home)">View System Files</div>
+	</div>
+	</div>
+</div>

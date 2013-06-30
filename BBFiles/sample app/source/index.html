@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html> 
+	<head>
+		<meta name="x-blackberry-defaultHoverEffect" content="false" />
+		<link  rel="stylesheet" type="text/css" href="cssjs/bbui.css"><link />
+		<script type="text/javascript" src="cssjs/bbui.js"></script>
+		<script type="text/javascript" src="cssjs/custom.js"></script>
+		<script type="text/javascript" src="cssjs/bbfiles.js"></script>
+		<script type="text/javascript" src="local:///chrome/webworks.js"></script>
+		<script type="text/javascript">
+        var webworksreadyFired = false,
+            darkColoring = true,
+            darkScreenColor = '#252525';
+				
+			document.addEventListener('webworksready', function(e) {
+				if (webworksreadyFired) return;
+				webworksreadyFired = true;
+
+				var config;
+				if (darkColoring) {
+					config = {controlsDark: true,
+							listsDark: true,
+							bb10ForPlayBook: true};
+				} else {
+					config = {controlsDark: false,
+							listsDark: false,
+							coloredTitleBar: true,
+							bb10ForPlayBook: true};
+				}
+				
+				config.onscreenready = function(element, id) {
+				};
+				config.ondomready = function(element, id, params) {
+					var canvas=document.getElementById("canvas");
+					var ctx=canvas.getContext("2d");
+					ctx.fillStyle="#FF0000";
+					ctx.fillRect(0,0,500,300);
+				};
+				
+				bb.init(config);
+				if (darkColoring && bb.device.isBB10) {
+					document.body.style['background-color'] = darkScreenColor;
+					document.body.style['color'] = 'white';
+				}
+				bb.pushScreen('main.html', 'themainpage');
+			}, false);
+			
+			window.addEventListener('load',function() {
+					if (navigator.userAgent.indexOf('BB10') < 0) {
+						var evt = document.createEvent('Events');
+						evt.initEvent('webworksready', true, true);
+						document.dispatchEvent(evt);
+					}
+				});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
